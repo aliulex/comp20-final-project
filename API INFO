@@ -1,0 +1,39 @@
+API INFO
+
+All Genius API responses are JSON. Every JSON response has a meta field with a status value that is an integer representation of the HTTP status code for the response.
+
+---
+
+Songs
+A song is a document hosted on Genius. It's usually music lyrics.
+
+Data for a song includes details about the document itself and information about all the referents that are attached to it, including the text to which they refer.
+  
+GET /songs/:id   ::  Data for a specific song.
+
+id:	ID of the song
+text_format:	Format for text bodies related to the document. One or more of dom, plain, and html, separated by commas (defaults to dom). 
+    -plain is just plain text, no markup
+    -html is a string of unescaped HTML suitable for rendering by a browser
+    -dom is a nested object representing and HTML DOM hierarchy that can be used to programmatically present structured content
+
+---
+
+Artists
+An artist is how Genius represents the creator of one or more songs (or other documents hosted on Genius). It's usually a musician or group of musicians.
+
+GET /artists/:id  ::  Data for a specific artist.
+
+id:	ID of the artist
+text_format:	Format for text bodies related to the document. One or more of dom, plain, and html, separated by commas (defaults to dom). 
+  
+
+GET /artists/:id/songs
+Documents (songs) for the artist specified. By default, 20 items are returned for each request.
+
+id:	ID of the artist.
+sort:	title (default) or popularity
+per_page:	Number of results to return per request
+page:	Paginated offset, (e.g., per_page=5&page=3 returns songs 11–15)
+
+
