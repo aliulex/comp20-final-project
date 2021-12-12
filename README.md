@@ -1,5 +1,7 @@
 # comp20-final-project
 
+APP URL: https://comp20final.herokuapp.com/process
+
 App Idea: Karaoke Song Library
 API: https://docs.genius.com/#/getting-started-h1 -Genius music app
 ^revolves heavily around interaction with API info
