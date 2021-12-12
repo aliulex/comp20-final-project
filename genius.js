@@ -4,6 +4,8 @@ import qs from 'querystring';
 import Genius from 'genius-lyrics';
 const Client = new Genius.Client("o19mtznUl0mu0kk0DZxZgATNB-2Cw0ihj5ybfCdOpd-pz25oY7A4J5BgGQEoqDGb");
 
+var port = process.env.PORT || 3000;
+
 http.createServer(function (req, res)  
 {
     if (req.url == "/") 
@@ -50,4 +52,4 @@ http.createServer(function (req, res)
 			res.end();
         });
     }
-}).listen(8080); 
+}).listen(port); 
