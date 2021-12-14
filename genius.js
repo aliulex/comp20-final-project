@@ -73,7 +73,13 @@ http.createServer(function (req, res)
             var dbo = db.db("favorites");
             var collection = dbo.collection('songs');
             var myobj = {song: query};
-            
+            dbo.collection('songs').deleteMany(myquery, function(err, obj) {
+    		if (err) throw err;
+    		console.log(db.result.n + " document(s) deleted");
+    		db.close();
+  	    });
+		
+	
             collection.insertOne(myobj, function(err, result) {
                 if(err) { console.log("query err: " + err); return; }
                 console.log("new document inserted");
@@ -81,12 +87,17 @@ http.createServer(function (req, res)
             
             collection.find({}).toArray(function(err, items) {
                 res.write("<h2>Your Favorite Songs:</h2>");
-                if(items.length == 0) 
-                {
+                if(items.length == 0) {
                     res.write("No favorites");
                 }
-                else 
-                {
+// 		else if {
+// 			for (let i = 0; i < items.length; i++) {
+// 				for (let j = i + 1; j<items.length; j++) {
+// 					if (items[i].song == items[j].song)
+// 				}
+// 			}
+// 		}
+                else {
                     for (let i=0; i<items.length; i++)
                     {
                         if(items[i].song != "null") {
