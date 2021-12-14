@@ -73,11 +73,6 @@ http.createServer(function (req, res)
             var dbo = db.db("favorites");
             var collection = dbo.collection('songs');
             var myobj = {song: query};
-//             dbo.collection('songs').deleteMany(myquery, function(err, obj) {
-//     		if (err) throw err;
-//     		console.log(db.result.n + " document(s) deleted");
-//     		db.close();
-//   	    });
 		
 	
             collection.insertOne(myobj, function(err, result) {
@@ -90,13 +85,19 @@ http.createServer(function (req, res)
                 if(items.length == 0) {
                     res.write("No favorites");
                 }
-// 		else if {
-// 			for (let i = 0; i < items.length; i++) {
-// 				for (let j = i + 1; j<items.length; j++) {
-// 					if (items[i].song == items[j].song)
-// 				}
-// 			}
-// 		}
+		else if {
+			for (let i = 0; i < items.length; i++) {
+				for (let j = i + 1; j<items.length; j++) {
+					if (items[i].song == items[j].song) {
+						dbo.collection('songs').deleteOne(query, function(err, obj) {
+    							if (err) throw err;
+    							console.log(db.result.n + " document(s) deleted");
+    							db.close();
+  	   					 });
+					}
+				}
+			}
+		}
                 else {
                     for (let i=0; i<items.length; i++)
                     {
