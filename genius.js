@@ -73,11 +73,11 @@ http.createServer(function (req, res)
             var dbo = db.db("favorites");
             var collection = dbo.collection('songs');
             var myobj = {song: query};
-            dbo.collection('songs').deleteMany(myquery, function(err, obj) {
-    		if (err) throw err;
-    		console.log(db.result.n + " document(s) deleted");
-    		db.close();
-  	    });
+//             dbo.collection('songs').deleteMany(myquery, function(err, obj) {
+//     		if (err) throw err;
+//     		console.log(db.result.n + " document(s) deleted");
+//     		db.close();
+//   	    });
 		
 	
             collection.insertOne(myobj, function(err, result) {
