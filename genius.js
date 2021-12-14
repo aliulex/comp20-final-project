@@ -85,19 +85,19 @@ http.createServer(function (req, res)
                 if(items.length == 0) {
                     res.write("No favorites");
                 }
-		else if {
-			for (let i = 0; i < items.length; i++) {
-				for (let j = i + 1; j<items.length; j++) {
-					if (items[i].song == items[j].song) {
-						dbo.collection('songs').deleteOne(query, function(err, obj) {
-    							if (err) throw err;
-    							console.log(db.result.n + " document(s) deleted");
-    							db.close();
-  	   					 });
-					}
-				}
-			}
-		}
+// 		else if {
+// 			for (let i = 0; i < items.length; i++) {
+// 				for (let j = i + 1; j<items.length; j++) {
+// 					if (items[i].song == items[j].song) {
+// 						dbo.collection('songs').deleteOne(query, function(err, obj) {
+//     							if (err) throw err;
+//     							console.log(db.result.n + " document(s) deleted");
+//     							db.close();
+//   	   					 });
+// 					}
+// 				}
+// 			}
+// 		}
                 else {
                     for (let i=0; i<items.length; i++)
                     {
