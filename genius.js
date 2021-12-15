@@ -65,7 +65,6 @@ http.createServer(function (req, res)
     else if (req.url == "/favorites") 
     {
         res.writeHead(200, {'Content-Type':'text/html'});
-        res.write("favorite page<br>");
         
         MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
             if(err) { return console.log(err); return;}
@@ -81,7 +80,7 @@ http.createServer(function (req, res)
             });
             
             collection.find({}).toArray(function(err, items) {
-                res.write("<h2>Your Favorite Songs:</h2>");
+                res.write("<h2>Your Favorite Song List</h2>");
                 if(items.length == 0) {
                     res.write("No favorites");
                 }
