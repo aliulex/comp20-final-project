@@ -54,7 +54,6 @@ http.createServer(function (req, res)
 			const firstSong = searches[0];
 			lyrics = await firstSong.lyrics();
 			
-			res.write("<h1>Song Lyrics App</h1>");
 			res.write("<h2>Lyrics</h2>");
 			res.write(lyrics);
 
