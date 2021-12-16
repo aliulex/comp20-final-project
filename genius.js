@@ -86,7 +86,7 @@ http.createServer(function (req, res)
             });
             
             collection.find({}).toArray(function(err, items) {
-                res.write("<h2>Your Favorite Song List</h2>");
+                res.write("<h2>Your Favorite Songs:</h2>");
                 if(items.length == 0) {
                     res.write("No favorites");
                 }
