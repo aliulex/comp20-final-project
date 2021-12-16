@@ -63,7 +63,12 @@ http.createServer(function (req, res)
     
     else if (req.url == "/favorites") 
     {
-        res.writeHead(200, {'Content-Type':'text/html'});
+        var file = 'favorites.html';  
+  		fs.readFile(file, function(err, txt) 
+        {
+      	    res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write(txt);
+  	    });
         
         MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
             if(err) { return console.log(err); return;}
