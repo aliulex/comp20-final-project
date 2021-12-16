@@ -85,7 +85,7 @@ http.createServer(function (req, res)
                 console.log("new document inserted");
             });
             
-            collection.find({}).toArray(function(err, items) {
+            collection.find({"song":{$ne:null}}).toArray(function(err, items) {
                 res.write("<h2>Your Favorite Songs:</h2>");
                 if(items.length == 0) {
                     res.write("No favorites");
@@ -106,9 +106,7 @@ http.createServer(function (req, res)
                 else {
                     for (let i=0; i<items.length; i++)
                     {
-                        if(items[i].song != "null") {
                             res.write(items[i].song + "<br><br>");
-                        }
                     }
                     res.end();
                 } 
